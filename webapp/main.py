@@ -3,7 +3,12 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
-generator = pipeline('text-generation', model='gpt2')
+# generator = pipeline('text-generation', model='gpt2', framework='pt')
+generator = pipeline("text2text-generation", model="t5-base")
+# Explicitly load model and tokenizer
+# model = GPT2LMHeadModel.from_pretrained("gpt2")
+# tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+# generator = pipeline("text-generation", model=model, tokenizer=tokenizer, framework="pt")
 
 app = FastAPI()
 

@@ -1,4 +1,5 @@
-transformers==4.20.1
-tensorflow==2.9.1
+transformers==4.44.2
+tensorflow-cpu
 fastapi==0.78.0
 uvicorn[standard]
+tf-keras

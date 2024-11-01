@@ -5,8 +5,8 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-#  push:
-#    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 #  pull_request:
 #    branches: [ "main" ]
 
@@ -24,17 +24,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      # set up the Docker Buildx plugin, which enables the workflow to build and push multi-platform Docker images.
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-
+      # docker/login-action is the Action provided by Docker for logging into container registries.
       - name: Log in to GitHub container registry
         uses: docker/login-action@v1.10.0
         with:
+          # GitHub Container Registry (ghcr.io), GitHub's own container registry service.
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ github.token }}
-
+      # In Bash, the syntax ${variable,,} converts all characters in the specified variable to lowercase.
+      # GITHUB_REPOSITORY is an environment variable provided by GitHub, containing the full name of the repository (e.g., username/repository)
+      # Docker image names must be lowercase.
       - name: Lowercase the repo name and username
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
