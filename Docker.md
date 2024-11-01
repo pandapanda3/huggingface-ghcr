@@ -18,3 +18,6 @@ Check the logs: `docker logs <container_id>`
 stop the container: `docker stop <container_id>`
 
 remove container: `docker rm <container_id>`
+
+confirm that the credentials are valid and can successfully authenticate with Docker Hub: `echo <password> | docker login -u <username> --password-stdin`
+
