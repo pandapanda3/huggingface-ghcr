@@ -45,3 +45,10 @@ FastAPI: `http://0.0.0.0:8000/docs`
 `
 
 # Run workflow in github
+* Navigate to the Actions Tab: In your GitHub repository, click on the "Actions" tab at the top of the page. This will take you to the GitHub Actions dashboard where all workflows are listed.
+
+* Select the Workflow: In the list of workflows on the left sidebar, click on the name of the workflow you want to run manually (e.g., "CI" or "Build and Deploy").
+
+* Run the Workflow: Near the top right of the workflow page, click on the "Run workflow" button. A dropdown will appear, allowing you to select the branch (typically "main" or "master") to run the workflow on.
+
+* Confirm the Run: After selecting the branch, click the "Run workflow" button in the dropdown to start the workflow. GitHub will then queue the workflow and start running it.
