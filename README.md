@@ -6,6 +6,8 @@ The web application uses FastAPI with Hugging Face and exposes a single endpoint
 
 Fork this repository and run the GitHub Actions as-is so that you can register your own containerized application with no modifications needed.
 # Run the service locally
+First, run the service locally to confirm there are no issues. Then, run it again locally in Docker to ensure the service functions correctly within the container. Finally, deploy the workflow in GitHub Actions.First, run the service locally to confirm there are no issues. Then, run it again locally in Docker to ensure the service functions correctly within the container. Finally, deploy the workflow in GitHub Actions.
+
 ## Generate the environment
 `conda create --name huggingface python=3.8`
 
@@ -39,6 +41,8 @@ FastAPI: `http://0.0.0.0:8000/docs`
 # Build the container
 ## Click to start the local Docker application.
 ## Build a Docker image
+`cd ..`
+
 `docker build -t huggingface:local .`
 ## Run a container from an image
 `docker run -i -p 8000:8000 huggingface:local
