@@ -35,6 +35,16 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ github.token }}
+
+      # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          # Docker Hub's registry (docker.io)
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       # In Bash, the syntax ${variable,,} converts all characters in the specified variable to lowercase.
       # GITHUB_REPOSITORY is an environment variable provided by GitHub, containing the full name of the repository (e.g., username/repository)
       # Docker image names must be lowercase.
